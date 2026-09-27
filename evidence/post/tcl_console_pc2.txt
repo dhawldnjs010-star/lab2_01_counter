@@ -1,0 +1,200 @@
+﻿# LAB2 [01] Vivado Tcl Console log — PC2 (SangHyeok, 조원 PC)
+# 원본 Vivado 세션 로그에서 이 실험에 해당하는 구간만 발췌함 (내용 수정 없음)
+#
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 13-sep-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Mon Sep 21 12:58:52 2026
+# Process ID         : 35572
+# Current directory  : C:/Users/djawl/AppData/Roaming/Xilinx/Vivado
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent5364
+# Log file           : C:/Users/djawl/AppData/Roaming/Xilinx/Vivado/vivado.log
+# Journal file       : C:/Users/djawl/AppData/Roaming/Xilinx/Vivado\vivado.jou
+# Running On         : SangHyeok
+# Platform           : Windows 11
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) 3 100U
+# CPU Frequency      : 2496 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 8
+# Host memory        : 8258 MB
+# Swap memory        : 21103 MB
+# Total Virtual      : 29361 MB
+# Available Virtual  : 11173 MB
+#-----------------------------------------------------------
+
+#==== 프로젝트 생성 · Behavioral 시뮬레이션 · 합성/구현/비트스트림 (조원 PC 재현 실행)  (원본 26–184행) ====
+open_project C:/Users/djawl/lab2_01_counter/vivado/counter.xpr
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/djawl/lab2_01_counter/vivado/counter.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+WARNING: [Project 1-5713] Board part '' set for the project  is not found. BoardPart property will be unset. Please select board from latest repo build 
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/AMDDesignTools/2026.1/Vivado/data/ip'.
+open_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:05 . Memory (MB): peak = 1700.914 ; gain = 38.656
+add_files -norecurse {C:/Users/djawl/lab2_01_counter/src/counter4.v C:/Users/djawl/lab2_01_counter/src/input_frontend.v C:/Users/djawl/lab2_01_counter/src/lab2_counter.v}
+update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse C:/Users/djawl/lab2_01_counter/sim/tb_counter4.sv
+update_compile_order -fileset sim_1
+add_files -fileset constrs_1 -norecurse C:/Users/djawl/lab2_01_counter/constraints/lab2_counter.xdc
+launch_simulation
+Command: launch_simulation  -mode behavioral
+INFO: [Vivado 12-25911] Executing simulation for 'XSim' simulator
+INFO: [Vivado 12-28535] Process started - Mon Sep 21 13:32:59 2026
+
+INFO: [Vivado 12-12493] Simulation top is 'lab2_counter'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/djawl/lab2_01_counter/vivado/counter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/AMDDesignTools/2026.1/Vivado/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'lab2_counter' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/djawl/lab2_01_counter/vivado/counter.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj lab2_counter_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab2_01_counter/src/counter4.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module counter4
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab2_01_counter/src/input_frontend.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_frontend
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab2_01_counter/src/lab2_counter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lab2_counter
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab2_01_counter/vivado/counter.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/djawl/lab2_01_counter/vivado/counter.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot lab2_counter_behav xil_defaultlib.lab2_counter xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot lab2_counter_behav xil_defaultlib.lab2_counter xil_defaultlib.glbl -log elaborate.log 
+INFO: [XSIM 43-3493] Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.input_frontend_default
+Compiling module xil_defaultlib.counter4
+Compiling module xil_defaultlib.lab2_counter
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot lab2_counter_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 1728.398 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/djawl/lab2_01_counter/vivado/counter.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "lab2_counter_behav -key {Behavioral:sim_1:Functional:lab2_counter} -tclbatch {lab2_counter.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source lab2_counter.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'lab2_counter_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:12 . Memory (MB): peak = 1735.141 ; gain = 6.742
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+set_property top tb_counter4 [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation  -mode behavioral
+INFO: [Vivado 12-25911] Executing simulation for 'XSim' simulator
+INFO: [Vivado 12-28535] Process started - Mon Sep 21 13:34:14 2026
+
+INFO: [Vivado 12-12493] Simulation top is 'tb_counter4'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/djawl/lab2_01_counter/vivado/counter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/AMDDesignTools/2026.1/Vivado/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_counter4' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/djawl/lab2_01_counter/vivado/counter.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_counter4_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab2_01_counter/src/counter4.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module counter4
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/djawl/lab2_01_counter/sim/tb_counter4.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_counter4
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab2_01_counter/vivado/counter.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/djawl/lab2_01_counter/vivado/counter.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_counter4_behav xil_defaultlib.tb_counter4 xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_counter4_behav xil_defaultlib.tb_counter4 xil_defaultlib.glbl -log elaborate.log 
+INFO: [XSIM 43-3493] Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.counter4
+Compiling module xil_defaultlib.tb_counter4
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_counter4_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/djawl/lab2_01_counter/vivado/counter.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_counter4_behav -key {Behavioral:sim_1:Functional:tb_counter4} -tclbatch {tb_counter4.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_counter4.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+LAB2_PASS counter4 checks=36
+$finish called at time : 356 ns : File "C:/Users/djawl/lab2_01_counter/sim/tb_counter4.sv" Line 19
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_counter4_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_runs synth_1 -jobs 4
+[Mon Sep 21 13:36:23 2026] Launched synth_1...
+Run output will be captured here: C:/Users/djawl/lab2_01_counter/vivado/counter.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Mon Sep 21 13:37:33 2026] Launched impl_1...
+Run output will be captured here: C:/Users/djawl/lab2_01_counter/vivado/counter.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Mon Sep 21 13:40:20 2026] Launched impl_1...
+Run output will be captured here: C:/Users/djawl/lab2_01_counter/vivado/counter.runs/impl_1/runme.log
+close_project
+
+#==== 프로젝트 재열기  (원본 422–431행) ====
+open_project C:/Users/djawl/lab2_01_counter/vivado/counter.xpr
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/djawl/lab2_01_counter/vivado/counter.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+WARNING: [Project 1-5713] Board part '' set for the project  is not found. BoardPart property will be unset. Please select board from latest repo build 
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/AMDDesignTools/2026.1/Vivado/data/ip'.
+update_compile_order -fileset sources_1
+close_project
