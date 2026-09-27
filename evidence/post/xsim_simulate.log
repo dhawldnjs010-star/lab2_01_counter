@@ -1,0 +1,3 @@
+Time resolution is 1 ps
+LAB2_PASS counter4 checks=36
+$finish called at time : 356 ns : File "C:/Users/djawl/lab2_01_counter/sim/tb_counter4.sv" Line 19
